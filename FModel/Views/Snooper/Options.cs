@@ -240,6 +240,18 @@ public class Options
         Services.ApplicationService.ApplicationView.CUE4Parse.ModelIsWaitingAnimation = value;
     }
 
+    /// <summary>
+    /// Skip emissive for specific games, cause of excessive use in their materials
+    /// </summary>
+    public bool SkipEmissive()
+    {
+        return _game switch
+        {
+            "LIESOFP" or "CODEVEIN2" or "HIGHONLIFE2" => true,
+            _ => false,
+        };
+    }
+
     public void ResetModelsLightsAnimations()
     {
         foreach (var model in Models.Values)

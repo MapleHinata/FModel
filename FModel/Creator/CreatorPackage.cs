@@ -33,6 +33,7 @@ public class CreatorPackage : IDisposable
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool TryConstructCreator([MaybeNullWhen(false)] out UCreator creator)
     {
+        // TODO: convert to a type based system
         switch (_exportType)
         {
             // Fortnite
@@ -47,6 +48,8 @@ public class CreatorPackage : IDisposable
             case "AthenaMapMarkerItemDefinition":
             case "AthenaBackpackItemDefinition":
             case "CosmeticShoesItemDefinition":
+            case "CosmeticCompanionItemDefinition":
+            case "CosmeticCompanionReactFXItemDefinition":
             case "AthenaPickaxeItemDefinition":
             case "AthenaGadgetItemDefinition":
             case "AthenaGliderItemDefinition":
@@ -97,12 +100,14 @@ public class CreatorPackage : IDisposable
             case "FortCodeTokenItemDefinition":
             case "FortSchematicItemDefinition":
             case "FortAlterableItemDefinition":
+            case "SproutHousingItemDefinition":
             case "SparksKeyboardItemDefinition":
             case "FortWorldMultiItemDefinition":
             case "FortAlterationItemDefinition":
             case "FortExpeditionItemDefinition":
             case "FortIngredientItemDefinition":
             case "FortConsumableItemDefinition":
+            case "SproutBuildingItemDefinition":
             case "StWFortAccoladeItemDefinition":
             case "FortAccountBuffItemDefinition":
             case "FortFOBCoreDecoItemDefinition":
@@ -159,6 +164,9 @@ public class CreatorPackage : IDisposable
             case "JunoAthenaCharacterItemOverrideDefinition":
             case "JunoAthenaDanceItemOverrideDefinition":
                 creator = new BaseJuno(_object.Value, _style);
+                return true;
+            case "AssembledMeshSchema":
+                creator = new BaseAssembledMesh(_object.Value, _style);
                 return true;
             case "FortTandemCharacterData":
                 creator = new BaseTandem(_object.Value, _style);

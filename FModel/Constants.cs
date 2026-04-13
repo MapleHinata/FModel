@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Numerics;
@@ -13,6 +13,7 @@ public static class Constants
     public static readonly string APP_VERSION = FileVersionInfo.GetVersionInfo(APP_PATH).FileVersion;
     public static readonly string APP_COMMIT_ID = FileVersionInfo.GetVersionInfo(APP_PATH).ProductVersion?.SubstringAfter('+');
     public static readonly string APP_SHORT_COMMIT_ID = APP_COMMIT_ID[..7];
+    public static readonly DateTime APP_BUILD_DATE = File.GetLastWriteTime(APP_PATH);
 
     public const string ZERO_64_CHAR = "0000000000000000000000000000000000000000000000000000000000000000";
     public static readonly FGuid ZERO_GUID = new(0U);
@@ -38,6 +39,12 @@ public static class Constants
     public const string _VAL_LIVE_TRIGGER = "valorant-live.manifest";
 
     public const string _NO_PRESET_TRIGGER = "Hand Made";
+
+    // Common issues
+    public const string MAPPING_ISSUE_LINK = "https://github.com/4sval/FModel/discussions/418";
+    public const string AUDIO_ISSUE_LINK = "https://github.com/4sval/FModel/discussions/658";
+    public const string RADA_ISSUE_LINK = "https://github.com/4sval/FModel/discussions/422";
+    public const string VERSION_ISSUE_LINK = "https://github.com/4sval/FModel/discussions/425";
 
     public static int PALETTE_LENGTH => COLOR_PALETTE.Length;
     public static readonly Vector3[] COLOR_PALETTE =
