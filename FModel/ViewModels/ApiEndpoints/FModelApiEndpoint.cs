@@ -92,6 +92,7 @@ public class FModelApiEndpoint : AbstractApiProvider
 
     public void CheckForUpdates(bool launch = false)
     {
+        return;
         if (DateTime.Now < UserSettings.Default.NextUpdateCheck)
         {
             Log.Warning("Updates have been silenced until {DateTime}", UserSettings.Default.NextUpdateCheck);

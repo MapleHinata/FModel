@@ -22,9 +22,9 @@ public sealed class UserSettings : ViewModel
 #if DEBUG
     public bool SuppressViewerLogs { get; set; }
 
-    public static readonly string FilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "FModel", "AppSettings_Debug.json");
+    public static readonly string FilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "FModel_IN", "AppSettings_Debug.json");
 #else
-    public static readonly string FilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "FModel", "AppSettings.json");
+    public static readonly string FilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "FModel_IN", "AppSettings.json");
 #endif
 
     static UserSettings()
